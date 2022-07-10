@@ -13,6 +13,7 @@
 
 # misc
 .DS_Store
+# .env -> commented because it's not private
 .env.local
 .env.development.local
 .env.test.local

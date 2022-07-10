@@ -1,0 +1,1 @@
+export { isGmail } from './isGmail';
