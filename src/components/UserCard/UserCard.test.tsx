@@ -21,7 +21,13 @@ const vipUser: User = {
 describe('UserCard tests', () => {
   it('Should render correctly a non-vip user', () => {
     render(
-      <UserCard email={normalUser.email} image={normalUser.image} username={normalUser.username} isVIP={normalUser.isGmailUser} />
+      <UserCard
+        id={normalUser.id}
+        email={normalUser.email}
+        image={normalUser.image}
+        username={normalUser.username}
+        isVIP={normalUser.isGmailUser}
+      />
     );
 
     const vipTag = screen.queryByText(/VIP User/i);
@@ -34,7 +40,15 @@ describe('UserCard tests', () => {
   });
 
   it('Should render correctly a vip user', () => {
-    render(<UserCard email={vipUser.email} image={vipUser.image} username={vipUser.username} isVIP={vipUser.isGmailUser} />);
+    render(
+      <UserCard
+        id={vipUser.id}
+        email={vipUser.email}
+        image={vipUser.image}
+        username={vipUser.username}
+        isVIP={vipUser.isGmailUser}
+      />
+    );
 
     const vipTag = screen.getByText(/VIP User/i);
     const username = screen.getByText(`Username: ${vipUser.username}`);
