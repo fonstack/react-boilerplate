@@ -1,24 +1,24 @@
 import { UsersService } from '../../api';
 import { UserCard } from '../../components';
-import { StyledDashboardPage } from './styles';
+import { StyledUsersPage } from './styles';
 
-const DashboardPage = () => {
+const UsersPage = () => {
   const { data: users, isLoading: loadingUsers } = UsersService.useUsers();
 
   return (
-    <StyledDashboardPage>
-      <h1>Dashboard Page</h1>
+    <StyledUsersPage>
+      <h1>Users Page</h1>
       {loadingUsers ? (
         <p>Loading users...</p>
       ) : (
-        <div>
+        <div data-testid={'users-grid-test-id'}>
           {users?.map((user) => (
-            <UserCard key={user.id} {...user} marked={user.isGmailUser} />
+            <UserCard key={user.id} {...user} isVIP={user.isGmailUser} />
           ))}
         </div>
       )}
-    </StyledDashboardPage>
+    </StyledUsersPage>
   );
 };
 
-export { DashboardPage };
+export { UsersPage };

@@ -1,4 +1,4 @@
-import graphQlClient from '../graphql';
+import graphQlClient from '../client';
 import { getUsersQuery } from './queries';
 import { ServerUsers } from './types';
 

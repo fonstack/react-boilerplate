@@ -1,17 +1,14 @@
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { DashboardPage } from './pages';
-import { StyledApp } from './styles';
+import App from './App';
 
 const queryClient = new QueryClient();
 
-function App() {
+function Root() {
   return (
     <QueryClientProvider client={queryClient}>
-      <StyledApp>
-        <DashboardPage />
-      </StyledApp>
+      <App />
     </QueryClientProvider>
   );
 }
 
-export default App;
+export default Root;

@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-export const StyledDashboardPage = styled.div`
+export const StyledUsersPage = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;

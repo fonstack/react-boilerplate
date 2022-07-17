@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledUserCard = styled.div<{ marked: boolean }>`
+export const StyledUserCard = styled.div<{ isVIP: boolean }>`
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@ export const StyledUserCard = styled.div<{ marked: boolean }>`
   align-items: center;
   padding: 15px;
   border: 4px solid;
-  border-color: ${({ marked }) => (marked ? 'blue' : 'black')};
+  border-color: ${({ isVIP }) => (isVIP ? 'blue' : 'black')};
   border-radius: 5px;
   transition: 0.3s;
 
