@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import { User } from '../../api/users';
 import { UserCard } from './UserCard';
 
@@ -18,17 +19,17 @@ const vipUser: User = {
   isGmailUser: true,
 };
 
+const renderUserCard = (user: User): void => {
+  render(
+    <BrowserRouter>
+      <UserCard id={user.id} email={user.email} image={user.image} username={user.username} isVIP={user.isGmailUser} />
+    </BrowserRouter>
+  );
+};
+
 describe('UserCard tests', () => {
   it('Should render correctly a non-vip user', () => {
-    render(
-      <UserCard
-        id={normalUser.id}
-        email={normalUser.email}
-        image={normalUser.image}
-        username={normalUser.username}
-        isVIP={normalUser.isGmailUser}
-      />
-    );
+    renderUserCard(normalUser);
 
     const vipTag = screen.queryByText(/VIP User/i);
     const username = screen.getByText(`Username: ${normalUser.username}`);
@@ -40,15 +41,7 @@ describe('UserCard tests', () => {
   });
 
   it('Should render correctly a vip user', () => {
-    render(
-      <UserCard
-        id={vipUser.id}
-        email={vipUser.email}
-        image={vipUser.image}
-        username={vipUser.username}
-        isVIP={vipUser.isGmailUser}
-      />
-    );
+    renderUserCard(vipUser);
 
     const vipTag = screen.getByText(/VIP User/i);
     const username = screen.getByText(`Username: ${vipUser.username}`);
